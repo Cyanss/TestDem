@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyan.test.dao.PluginInfoDAO">
+    <select id="queryPluginInfo" resultType="com.cyan.test.vo.PluginVO">
+        select plugin_id, user_id, plugin_name, plugin_type, plugin_icon, plugin_env, plugin_keyword, plugin_url, plugin_content, create_time
+        from plugin_info
+    </select>
+    <select id="queryPluginInfoById" resultType="com.cyan.test.vo.PluginVO">
+        select plugin_id, user_id, plugin_name, plugin_type, plugin_icon, plugin_env, plugin_keyword, plugin_url, plugin_content, create_time
+        from plugin_info where plugin_id = #{pluginId}
+    </select>
+    <select id="queryPluginInfoByName" resultType="com.cyan.test.vo.PluginVO">
+        select plugin_id, user_id, plugin_name, plugin_type, plugin_icon, plugin_env, plugin_keyword, plugin_url, plugin_content, create_time
+        from plugin_info where plugin_name = #{pluginName}
+    </select>
+    <select id="queryPluginInfoByUserId" resultType="com.cyan.test.vo.PluginVO">
+        select plugin_id, user_id, plugin_name, plugin_type, plugin_icon, plugin_env, plugin_keyword, plugin_url, plugin_content, create_time
+        from plugin_info where user_id = #{userId}
+    </select>
+    <select id="queryByPluginNameLike" resultType="com.cyan.test.vo.PluginVO">
+        select plugin_id, user_id, plugin_name, plugin_type, plugin_icon, plugin_env, plugin_keyword, plugin_url, plugin_content, create_time
+        from plugin_info where plugin_name like concat('%',#{pluginName},'%')
+    </select>
+    <insert id="insertPluginInfo" useGeneratedKeys="true" keyProperty="pluginId" keyColumn="plugin_id" parameterType="com.cyan.test.dto.PluginDTO">
+        insert into plugin_info(user_id, plugin_name, plugin_type, plugin_icon, plugin_env, plugin_keyword, plugin_url, plugin_content)
+        values (#{userId}, #{pluginName}, #{pluginType}, #{pluginIcon}, #{pluginEnv}, #{pluginKeyword}, #{pluginUrl}, #{pluginContent})
+    </insert>
+    <update id="updatePluginInfo" parameterType="com.cyan.test.dto.PluginDTO">
+        update plugin_info
+        <set>
+            <if test="pluginDTO.userId!=null">user_id=#{pluginDTO.userId},</if>
+            <if test="pluginDTO.pluginName!=null">plugin_name=#{pluginDTO.pluginName}</if>
+            <if test="pluginDTO.pluginType!=null">plugin_type=#{pluginDTO.pluginType}</if>
+            <if test="pluginDTO.pluginIcon!=null">plugin_icon=#{pluginDTO.pluginIcon}</if>
+            <if test="pluginDTO.pluginEnv!=null">plugin_env=#{pluginDTO.pluginEnv}</if>
+            <if test="pluginDTO.pluginKeyword!=null">plugin_keyword=#{pluginDTO.pluginKeyword}</if>
+            <if test="pluginDTO.pluginUrl!=null">plugin_url=#{pluginDTO.pluginUrl}</if>
+            <if test="pluginDTO.pluginContent!=null">plugin_content=#{pluginDTO.pluginContent}</if>
+        </set>
+        where plugin_id = #{pluginId}
+    </update>
+    <delete id="deletePluginInfo">
+        delete from plugin_info where plugin_id = #{pluginId}
+    </delete>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyan.test.dao.UserInfoDAO">
+    <select id="queryUserInfo" resultType="com.cyan.test.vo.UserVO">
+        select user_id, user_name, user_phone, user_email, user_password, user_auth, create_time
+        from user_info
+    </select>
+    <select id="queryUserInfoByUserId" resultType="com.cyan.test.vo.UserVO">
+        select user_id, user_name, user_phone, user_email, user_password, user_auth, create_time
+        from user_info where user_id = #{userId}
+    </select>
+    <select id="queryUserInfoByName" resultType="com.cyan.test.vo.UserVO">
+        select user_id, user_name, user_phone, user_email, user_password, user_auth, create_time
+        from user_info where user_name = #{userName}
+    </select>
+    <insert id="insertUserInfo" useGeneratedKeys="true" keyProperty="userId" keyColumn="user_id" parameterType="com.cyan.test.dto.UserDTO">
+        insert into user_info(user_name, user_phone, user_email, user_password, user_auth)
+        values (#{userName}, #{userPhone}, #{userEmail}, #{userPassword}, #{userAuth})
+    </insert>
+    <update id="updateUserInfo" parameterType="com.cyan.test.dto.UserDTO">
+        update user_info
+        <set>
+            <if test="userDTO.userName!=null">user_name=#{userDTO.userName},</if>
+            <if test="userDTO.userPhone!=null">user_phone=#{userDTO.userPhone}</if>
+            <if test="userDTO.userEmail!=null">user_email=#{userDTO.userEmail}</if>
+            <if test="userDTO.userPassword!=null">user_password=#{userDTO.userPasswprd}</if>
+            <if test="userDTO.userAuth!=null">user_auth=#{userDTO.userAuth}</if>
+        </set>
+        where user_id = #{userId}
+    </update>
+    <delete id="deleteUserInfo">
+        delete from user_info where user_id = #{userId}
+    </delete>
+</mapper>

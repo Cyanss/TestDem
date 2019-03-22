@@ -1,0 +1,523 @@
+{
+	"info": {
+		"_postman_id": "325dc86b-c10e-4d00-bd2a-cfa37b36d274",
+		"name": "TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "增加接口",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Cyan\",\n\t\"userPhone\":\"13298359897\",\n\t\"userEmail\":\"snow22314@outlook.com\",\n\t\"userPassword\":\"*password\",\n\t\"userAuth\": \"Level\"\n}"
+				},
+				"url": "http://192.168.1.184:8083/test/user/add"
+			},
+			"response": []
+		},
+		{
+			"name": "查询一个",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/user/one?userid=5",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"user",
+						"one"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Cyan3\",\n\t\"userPhone\":\"13298359897\",\n\t\"userEmail\":\"snow22314@outlook.com\",\n\t\"userPassword\":\"*password\",\n\t\"userAuth\": \"Level\"\n}"
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/user/delete?userid=5",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"user",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Cyan90\"\n}"
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/user/update?userid=5",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"user",
+						"update"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户名查询",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/user/name?username=Cyan6",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"user",
+						"name"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Cyan6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询所有 分页",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://192.168.1.184:8083/test/user/page"
+			},
+			"response": []
+		},
+		{
+			"name": "插件增加接口",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pluginName\":\"Plugin\",\n\t\"userId\": 9,\n\t\"pluginType\":\"type\",\n\t\"pluginKeyword\":\"key\",\n\t\"pluginContent\":\"插件描述\",\n\t\"pluginEnv\": \"环境\"\n}"
+				},
+				"url": "http://192.168.1.184:8083/test/plugin/add"
+			},
+			"response": []
+		},
+		{
+			"name": "删除插件信息",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Cyan3\",\n\t\"userPhone\":\"13298359897\",\n\t\"userEmail\":\"snow22314@outlook.com\",\n\t\"userPassword\":\"*password\",\n\t\"userAuth\": \"Level\"\n}"
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/plugin/delete?pluginid=5",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"plugin",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "pluginid",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "插件更新",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\":\"Cyan90\"\n}"
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/plugin/update?pluginid=9",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"plugin",
+						"update"
+					],
+					"query": [
+						{
+							"key": "pluginid",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询一条插件信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/plugin/one?pluginid=19",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"plugin",
+						"one"
+					],
+					"query": [
+						{
+							"key": "pluginid",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "通过ID查所有详细信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/plugin/all?pluginid=10",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"plugin",
+						"all"
+					],
+					"query": [
+						{
+							"key": "pluginid",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询所有 分页",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://192.168.1.184:8083/test/plugin/page"
+			},
+			"response": []
+		},
+		{
+			"name": "模糊查找，分页",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/plugin/like?pluginname=插",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"plugin",
+						"like"
+					],
+					"query": [
+						{
+							"key": "pluginname",
+							"value": "插"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "通过插件编号查询用户信息",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://192.168.1.184:8083/test/plugin/user?pluginid=8",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"184"
+					],
+					"port": "8083",
+					"path": [
+						"test",
+						"plugin",
+						"user"
+					],
+					"query": [
+						{
+							"key": "pluginid",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
